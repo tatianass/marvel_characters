@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+# Project information
+[project]
+dependencies = [
+  "ruff>=0.9.9",
+  "pyright>=1.1.396",
+  "pip-tools>=7.4.1",
+  "pytest>=8.3.5",
+  "pytest-cov>=6.0.0",
+  "pre-commit>=4.1.0",
+  "bandit>=1.8.3",
+  "setuptools",
+  "python-dotenv",
+  # add dependencies here
+]
+name = "marvel_characters"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.13"
+
+# coverage config
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.run]
+branch = true
+relative_files = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 80
+
+# linting config
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
+[tool.pyright]
+include = ["src", "tests"]
+exclude = ["**/__pycache__"]
+
+pythonVersion = "3.11"
+
+venv = "venv"
+venvPath = "."
+
+executionEnvironments = [
+  { root = "src" },
+  { root = "tests", extraPaths = [
+    "src",
+  ] },
+]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "pep440"
+version_provider = "pep621"
+update_changelog_on_bump = true
+major_version_zero = true

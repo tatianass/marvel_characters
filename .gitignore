@@ -1,0 +1,23 @@
+# IntelliJ files
+.idea
+
+# Environments
+.env
+.env.*
+.venv
+.env.local
+venv
+
+# Test files
+.coverage
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+__pycache__
+
+# Distribution / packaging
+*.egg-info/
+*.egg-info
+.installed.cfg
+*.egg
+MANIFEST

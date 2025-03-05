@@ -1,0 +1,9 @@
+services:
+  marvel_characters:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - MARVEL_KEY=${MARVEL_KEY}
+    env_file:
+      - .env.local
