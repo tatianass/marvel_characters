@@ -4,7 +4,7 @@ import time
 
 from dotenv import load_dotenv
 
-from src.marvel_characters.marvel import Marvel
+from marvel_characters.marvel import Marvel
 
 # Create logging information
 logging.basicConfig()
@@ -30,9 +30,12 @@ _ = load_dotenv(f".env.{ENV}")
 
 def main():
     logger.info("Process started.")
+
+    offset = int(os.environ.get("OFFSET"))
+
     # Loop over different pages
     total = 0
-    for i in range(0, 90000, 20):
+    for i in range(0, offset, 20):
         # Check stop condition
         if i > total:
             break

@@ -65,6 +65,13 @@ source .venv/bin/activate
 ```
 
 Don't forget to create the `.env.local` file with the credentials needed.
+```md
+ENV=local
+MARVEL_PRIVATE_KEY=<private_key>
+MARVEL_PUBLIC_KEY=<public_key>
+OFFSET=90000
+
+```
 
 Check the `justfile` for all the available commands.
 
