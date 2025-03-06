@@ -1,6 +1,6 @@
 import json
 import time
-from hashlib import sha256
+from hashlib import md5
 
 import requests as rq
 
@@ -20,7 +20,10 @@ class Marvel:
         ts = str(time.time())
 
         # Hash information
-        hash_str = sha256(f"{ts}{private_key}{public_key}".encode("utf8")).hexdigest()
+        # See why usedforsecurity is bein used: https://www.codiga.io/blog/python-insecure-hash-functions/
+        hash_str = md5(
+            f"{ts}{private_key}{public_key}".encode("utf8"), usedforsecurity=False
+        ).hexdigest()
 
         # Set parameters
         params = {
