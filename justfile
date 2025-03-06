@@ -72,5 +72,5 @@ pre-commit:
 alias fix := pre-commit
 
 # Check if raw data is empty before running
-raw-run:
+run-raw:
     sh ./raw_run.sh

@@ -31,7 +31,11 @@ source .venv/bin/activate
 │   └── marvel_characters
 │       ├── __init__.py
 │       └── main.py
-│       └── character.py
+│       └── marvel.py
+│       └── pipelines.py
+│        └── data_processing.py
+│         └── pipeline.py
+│         └── nodes.py
 └── tests
     └── test_marvel_characters.py
 ```
@@ -49,7 +53,7 @@ different components.
 - `scripts`: Useful scripts for development or deployment.
 - `src`: Package code.
 - `tests`: Tests code.
-- Kedro structure: Used for the data pipeline
+- `pipelines`: Part of the Kedro structure used for the data pipeline
 ([see here](https://docs.kedro.org/en/stable/extend_kedro/architecture_overview.html))
 
 ## Setup
@@ -63,6 +67,18 @@ source .venv/bin/activate
 Don't forget to create the `.env.local` file with the credentials needed.
 
 Check the `justfile` for all the available commands.
+
+## Docker
+
+To use docker to create and run the code:
+
+```bash
+just build
+just run-full
+```
+
+The data can be accessed on the `Docker Desktop > Volume`:
+![img.png](img.png)
 
 ## Documentation
 

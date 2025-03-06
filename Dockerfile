@@ -13,6 +13,6 @@ COPY . /app
 
 RUN python3 -m pip install .
 
-# Same as just raw-run and ust run
+# Same as just run-raw and just run
 CMD sh ./raw_run.sh && \
     kedro run

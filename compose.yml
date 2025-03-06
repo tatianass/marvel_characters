@@ -7,4 +7,8 @@ services:
       - ENV=local
     env_file:
       - .env.local
-    tty: true
+    volumes:
+      - data:/app/data/
+
+volumes:
+  data:
