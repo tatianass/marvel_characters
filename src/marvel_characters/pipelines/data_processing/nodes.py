@@ -10,7 +10,6 @@ class Character(BaseModel):
 
     id: int = Field(gt=0, frozen=True)
     name: str = Field(max_length=50, frozen=True)
-    description: str = Field(max_length=500, frozen=True)
     modified: date = Field(frozen=True)
     resource_uri: str = Field(alias="resourceURI", frozen=True)
     total_comics_in_num: int = Field(frozen=True)
