@@ -53,5 +53,5 @@ class Marvel:
     def save_characters_to_json(self, filename: str):
         # Convert into JSON
         # File name is mydata.json
-        with open(f"data/{filename}", "w") as final:
+        with open(f"data/01_raw/{filename}", "w") as final:
             json.dump(self.characters, final)

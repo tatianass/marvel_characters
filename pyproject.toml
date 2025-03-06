@@ -15,7 +15,11 @@ dependencies = [
   "setuptools==68.0.0",
   "requests==2.32.3",
   "urllib3==1.26.16",
-  "python-dotenv>=1.0.1"
+  "python-dotenv>=1.0.1",
+  "kedro==0.19.11",
+  "kedro-datasets[polars, json]==6.0.0",
+  "ipdb",
+  "pydantic"
   # add dependencies here
 ]
 name = "marvel_characters"
@@ -60,10 +64,15 @@ executionEnvironments = [
   ] },
 ]
 
-[tool.commitizen]
-name = "cz_conventional_commits"
-tag_format = "$version"
-version_scheme = "pep440"
-version_provider = "pep621"
-update_changelog_on_bump = true
-major_version_zero = true
+[tool.kedro]
+package_name = "marvel_characters"
+project_name = "marvel_characters"
+kedro_init_version = "0.19.11"
+tools = "['Documentation', 'Data Structure', 'Kedro Viz']"
+example_pipeline = "False"
+source_dir = "src"
+
+[project.entry-points."kedro.hooks"]
+
+[tool.kedro_telemetry]
+project_id = "bc1134cd0f9341368f6d0b8d27eba369"

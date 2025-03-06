@@ -1,4 +1,8 @@
-FROM python:3.13
+FROM python:3.13-slim-bookworm
+
+RUN apt-get update && \
+    apt-get -y install sudo && \
+    sudo apt-get -y install jq
 
 WORKDIR /app
 
@@ -9,6 +13,6 @@ COPY . /app
 
 RUN python3 -m pip install .
 
-RUN mkdir -p data
-
-CMD python3 -m marvel_characters.main
+# Same as just raw-run and ust run
+CMD sh ./raw_run.sh && \
+    kedro run

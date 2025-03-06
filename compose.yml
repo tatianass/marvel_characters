@@ -7,3 +7,4 @@ services:
       - ENV=local
     env_file:
       - .env.local
+    tty: true

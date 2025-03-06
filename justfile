@@ -7,7 +7,9 @@ init PY_VERSION='3.13':
     uv tool install ruff
     uv tool install bandit
     pre-commit install
-    mkdir -p data
+    uv pip install kedro
+    uv pip install kedro-datasets
+    kedro new
 
 # Update the precommit
 update:
@@ -31,7 +33,7 @@ build:
 
 # Launch the full stack
 run:
-    python3 -m marvel_characters.main
+    kedro run
 
 # Launch the full stack
 run-full:
@@ -68,3 +70,7 @@ pre-commit:
     pre-commit run --all-files
 
 alias fix := pre-commit
+
+# Check if raw data is empty before running
+raw-run:
+    sh ./raw_run.sh

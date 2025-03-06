@@ -1,4 +1,4 @@
-from marvel_characters.main import main
+from marvel_characters.generate_raw_data import main
 
 
 class TestMarvelCharacters:

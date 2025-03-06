@@ -1,0 +1,12 @@
+character_dataset:
+  type: json.JSONDataset
+  filepath: data/01_raw/characters.json
+
+preprocess_characters:
+  type: polars.EagerPolarsDataset
+  file_format: parquet
+  filepath: data/02_intermediate/preprocess_characters.parquet
+  load_args:
+    low_memory: True
+  save_args:
+    compression: "snappy"
