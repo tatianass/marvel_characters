@@ -1,1 +1,13 @@
+# IntelliJ files
+.idea
+
+# Environments
+.env.local
 venv
+
+# Test files
+.coverage
+
+# Byte-compiled / optimized / DLL files
+#__pycache__/
+#__pycache__

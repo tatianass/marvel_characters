@@ -47,3 +47,15 @@ different components.
 - `scripts`: Useful scripts for development or deployment.
 - `src`: Package code.
 - `tests`: Tests code.
+
+## Setup
+
+Activate the virtual environment with :
+
+```bash
+source .venv/bin/activate
+```
+
+Don't forget to create the `.env.local` file with the credentials needed.
+
+Check the `justfile` for all the available commands.

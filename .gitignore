@@ -1,3 +1,7 @@
+# macos
+.DS_Store
+*.DS_Store
+
 # IntelliJ files
 .idea
 
@@ -21,3 +25,7 @@ __pycache__
 .installed.cfg
 *.egg
 MANIFEST
+
+# Others
+notebooks
+data/

@@ -9,6 +9,6 @@ COPY . /app
 
 RUN python3 -m pip install .
 
-COPY src /app
+RUN mkdir -p data
 
 CMD python3 -m marvel_characters.main

@@ -4,8 +4,12 @@ bandit==1.8.3
     # via marvel-characters (pyproject.toml)
 build==1.2.2.post1
     # via pip-tools
+certifi==2025.1.31
+    # via requests
 cfgv==3.4.0
     # via pre-commit
+charset-normalizer==3.4.1
+    # via requests
 click==8.1.8
     # via pip-tools
 coverage==7.6.12
@@ -16,6 +20,8 @@ filelock==3.17.0
     # via virtualenv
 identify==2.6.8
     # via pre-commit
+idna==3.10
+    # via requests
 iniconfig==2.0.0
     # via pytest
 markdown-it-py==3.0.0
@@ -62,11 +68,13 @@ pyyaml==6.0.2
     # via
     #   bandit
     #   pre-commit
+requests==2.32.3
+    # via marvel-characters (pyproject.toml)
 rich==13.9.4
     # via bandit
 ruff==0.9.9
     # via marvel-characters (pyproject.toml)
-setuptools==75.8.2
+setuptools==68.0.0
     # via
     #   marvel-characters (pyproject.toml)
     #   pbr
@@ -75,6 +83,10 @@ stevedore==5.4.1
     # via bandit
 typing-extensions==4.12.2
     # via pyright
+urllib3==1.26.16
+    # via
+    #   marvel-characters (pyproject.toml)
+    #   requests
 virtualenv==20.29.2
     # via pre-commit
 wheel==0.45.1

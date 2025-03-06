@@ -4,6 +4,6 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - MARVEL_KEY=${MARVEL_KEY}
+      - ENV=local
     env_file:
       - .env.local

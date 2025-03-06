@@ -7,6 +7,7 @@ init PY_VERSION='3.13':
     uv tool install ruff
     uv tool install bandit
     pre-commit install
+    mkdir -p data
 
 # Update the precommit
 update:
@@ -25,7 +26,7 @@ clean:
 
 # Build the Docker image
 build:
-    docker build . -t marvel_characters
+    docker buildx build . -t marvel_characters
 
 
 # Launch the full stack
