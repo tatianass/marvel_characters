@@ -53,7 +53,7 @@ def create_data_table(input_data, name):
         css=".slick-row { background-color: #393939; }"
     )
     tb_stylesheet_selected = InlineStyleSheet(
-        css=".slick-cell.selected {background-color: #1f1d21;}"
+        css=".slick-cell.selected {background-color: #897e94;}"
     )
     data_table = DataTable(
         width=700,
