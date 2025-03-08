@@ -134,19 +134,28 @@ def comic_dashboard(df: pd.DataFrame):
 
 
 def comparison_dashboard(df: pd.DataFrame):
-    """Creating comparison dashboard based on: https://github.com/bokeh/bokeh/blob/branch-3.8/examples/server/app/crossfilter/main.py"""
+    """Creating comparison dashboard based on:
+    https://github.com/bokeh/bokeh/blob/branch-3.8/examples/server/app/crossfilter/main.py"""
     # Adjust column values
+    renaming_dict = {
+        "name": "Name",
+        "total_comics_in_num": "Total Comics",
+        "modified": "Modified",
+        "total_series_in_num": "Total Series",
+        "total_stories_in_num": "Total Stories",
+        "total_events_in_num": "Total Events",
+        "id": "Id",
+    }
+    df = df.rename(columns=renaming_dict)
     columns = sorted(df.columns)
     discrete = [x for x in columns if df[x].dtype == object]
     continuous = [x for x in columns if x not in discrete]
 
     # Adding variables
-    x = Select(title="X-Axis", value="total_series_in_num", options=columns)
-    y = Select(title="Y-Axis", value="total_stories_in_num", options=columns)
-    size = Select(
-        title="Size", value="total_comics_in_num", options=["None", *continuous]
-    )
-    color = Select(title="Color", value="id", options=["None", *continuous])
+    x = Select(title="X-Axis", value="Total Series", options=columns)
+    y = Select(title="Y-Axis", value="Total Stories", options=columns)
+    size = Select(title="Size", value="Total Comics", options=["None", *continuous])
+    color = Select(title="Color", value="Id", options=["None", *continuous])
 
     def create_marvel_comparison_chart():
         """Create comparison for the different count variables."""

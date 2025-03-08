@@ -76,5 +76,5 @@ run-raw:
     sh ./raw_run.sh
 
 # Run Bokeh server
-run-bokeh:
+run-chart:
     python3 -m marvel_characters.charts.main
