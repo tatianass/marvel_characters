@@ -4,6 +4,7 @@ from bokeh.layouts import column, row
 from bokeh.models import (
     ColumnDataSource,
     DataTable,
+    Div,
     HoverTool,
     InlineStyleSheet,
     IntEditor,
@@ -129,7 +130,7 @@ def comic_dashboard(df: pd.DataFrame):
     scatter_chart_comics = column(create_comic_chart(input_data=source, mapper=mapper))
     table_chart = column(create_data_table(input_data=source, name=name))
 
-    dashboard = row(scatter_chart_comics, table_chart)
+    dashboard = row(table_chart, scatter_chart_comics)
     return dashboard
 
 
@@ -152,10 +153,33 @@ def comparison_dashboard(df: pd.DataFrame):
     continuous = [x for x in columns if x not in discrete]
 
     # Adding variables
-    x = Select(title="X-Axis", value="Total Series", options=columns)
-    y = Select(title="Y-Axis", value="Total Stories", options=columns)
-    size = Select(title="Size", value="Total Comics", options=["None", *continuous])
-    color = Select(title="Color", value="Id", options=["None", *continuous])
+    ct_stylesheet_slick = InlineStyleSheet(
+        css=".bk-input { background-color: #393939; color: #fff; }"
+    )
+    x = Select(
+        title="X-Axis",
+        value="Total Series",
+        options=columns,
+        stylesheets=[ct_stylesheet_slick],
+    )
+    y = Select(
+        title="Y-Axis",
+        value="Total Stories",
+        options=columns,
+        stylesheets=[ct_stylesheet_slick],
+    )
+    size = Select(
+        title="Size",
+        value="Total Comics",
+        options=["None", *continuous],
+        stylesheets=[ct_stylesheet_slick],
+    )
+    color = Select(
+        title="Color",
+        value="Id",
+        options=["None", *continuous],
+        stylesheets=[ct_stylesheet_slick],
+    )
 
     def create_marvel_comparison_chart():
         """Create comparison for the different count variables."""
@@ -211,11 +235,26 @@ def comparison_dashboard(df: pd.DataFrame):
         """Update comparison table."""
         layout_comparison.children[1] = create_marvel_comparison_chart()
 
-    ct_stylesheet_slick = InlineStyleSheet(
-        css=".bk-input { background-color: #393939; }"
+    controls = column(x, y, color, size, width=150)
+
+    div = Div(
+        text="""
+    <h3>Analysing the information from the Marvel API, I found that:
+    <ul>
+    <li>There's a total of <b>1564</b> characters.</li>
+    <li>And (see table below), <b>the top 3</b> are: Spider Man (Peter Parker); X-Men; Wolverine.</li>
+    <li>The API also doesn't distinguish between individuals or franchise (e.g. X-Men).</li>
+    <li>Multiple similar characters appear, since they can belong to different universes.</li>
+    <li>Heavy focus on popular figures, with their appearance in comics highly correlated to the numbers in stories
+     and series.</li>
+    <li>There's a lot of abandoned characters from 1969.</li>
+    </ul></h3>
+    """,
+        width=550,
+        height=400,
     )
-    controls = row(x, y, color, size, width=200, stylesheets=[ct_stylesheet_slick])
-    layout_comparison = column(controls, create_marvel_comparison_chart())
+
+    layout_comparison = row(row(div, controls), create_marvel_comparison_chart())
 
     # Adding update functions
     x.on_change("value", update_marvel_comparison_chart)
@@ -226,7 +265,7 @@ def comparison_dashboard(df: pd.DataFrame):
     return layout_comparison
 
 
-def reporting(preprocessed_df) -> Column:
+def reporting_bokeh(preprocessed_df: pd.DataFrame) -> Column:
     # Load data
 
     preprocessed_df["modified"] = pd.to_datetime(preprocessed_df["modified"]).dt.year
@@ -237,4 +276,4 @@ def reporting(preprocessed_df) -> Column:
     comic = comic_dashboard(df=preprocessed_df)
     comparison = comparison_dashboard(df=preprocessed_df)
 
-    return column(comic, comparison)
+    return column(comparison, comic)

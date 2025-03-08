@@ -1,7 +1,7 @@
 from kedro.pipeline import Pipeline, node, pipeline
 
 from .intermediate import preprocess_characters
-from .reporting import reporting
+from .reporting import reporting_bokeh
 
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -14,7 +14,7 @@ def create_pipeline(**kwargs) -> Pipeline:
                 name="preprocess_characters_node",
             ),
             node(
-                func=reporting,
+                func=reporting_bokeh,
                 inputs="preprocess_characters",
                 outputs="reporting",
                 name="reporting_node",

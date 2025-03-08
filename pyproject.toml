@@ -20,8 +20,7 @@ dependencies = [
   "kedro-datasets[polars, json]==6.0.0",
   "ipdb",
   "pydantic",
-  "bokeh",
-  "plotly",
+  "bokeh"
   # add dependencies here
 ]
 name = "marvel_characters"
@@ -53,8 +52,6 @@ ignore = ["E501"]
 [tool.pyright]
 include = ["src", "tests"]
 exclude = ["**/__pycache__"]
-
-pythonVersion = "3.11"
 
 venv = "venv"
 venvPath = "."
