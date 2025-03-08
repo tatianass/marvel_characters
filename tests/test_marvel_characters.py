@@ -13,7 +13,7 @@ from marvel_characters.pipelines.data_processing import create_pipeline
 from marvel_characters.pipelines.data_processing.intermediate import (
     preprocess_characters,
 )
-from marvel_characters.pipelines.data_processing.reporting import reporting
+from marvel_characters.pipelines.data_processing.reporting import reporting_bokeh
 
 ENV = os.environ.get("ENV", "local")
 
@@ -104,6 +104,6 @@ class TestMarvelCharacters:
             }
         )
 
-        results = reporting(dummy_data)
+        results = reporting_bokeh(dummy_data)
 
         assert type(results) is Column

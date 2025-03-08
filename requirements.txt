@@ -125,7 +125,9 @@ packaging==24.2
     #   pytest
     #   pytoolconfig
 pandas==2.2.3
-    # via bokeh
+    # via
+    #   marvel-characters (pyproject.toml)
+    #   bokeh
 parse==1.20.2
     # via kedro
 parso==0.8.4

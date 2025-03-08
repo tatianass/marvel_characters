@@ -20,7 +20,8 @@ dependencies = [
   "kedro-datasets[polars, json]==6.0.0",
   "ipdb",
   "pydantic",
-  "bokeh"
+  "bokeh",
+  "pandas"
   # add dependencies here
 ]
 name = "marvel_characters"
