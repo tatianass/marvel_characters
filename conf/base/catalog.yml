@@ -3,10 +3,18 @@ character_dataset:
   filepath: data/01_raw/characters.json
 
 preprocess_characters:
-  type: polars.EagerPolarsDataset
-  file_format: parquet
-  filepath: data/02_intermediate/preprocess_characters.parquet
+  type: pandas.CSVDataset
+  filepath: data/02_intermediate/preprocess_characters.csv
   load_args:
-    low_memory: True
+    sep: ","
+    na_values: ["#NA", NA]
   save_args:
-    compression: "snappy"
+    index: False
+    date_format: "%Y-%m-%d"
+    decimal: .
+
+reporting:
+  type: marvel_characters.kedro_datasets.bokeh.html_dataset.HTMLDataset
+  filepath: data/08_reporting/comic.html
+  save_args:
+    auto_open: False

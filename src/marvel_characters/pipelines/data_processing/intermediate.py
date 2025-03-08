@@ -1,6 +1,6 @@
 from datetime import date
 
-import polars as pl
+import pandas as pd
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
@@ -28,7 +28,7 @@ class Character(BaseModel):
         return modified
 
 
-def preprocess_characters(characters: dict) -> pl.DataFrame:
+def preprocess_characters(characters: dict) -> pd.DataFrame:
     """Preprocesses the data for characters.
 
     Args:
@@ -53,5 +53,5 @@ def preprocess_characters(characters: dict) -> pl.DataFrame:
             chars_list.append(char_obj)
 
     # Transform to Polars
-    pre_characters = pl.DataFrame([vars(c) for c in chars_list])
+    pre_characters = pd.DataFrame([vars(c) for c in chars_list])
     return pre_characters

@@ -74,3 +74,7 @@ alias fix := pre-commit
 # Check if raw data is empty before running
 run-raw:
     sh ./raw_run.sh
+
+# Run Bokeh server
+run-bokeh:
+    python3 -m marvel_characters.charts.main

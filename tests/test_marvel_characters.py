@@ -1,14 +1,19 @@
 import json
 import os
 
+import pandas as pd
 import pytest
+from bokeh.models.layouts import Column
 from dotenv import load_dotenv
 from kedro.pipeline import Pipeline
 
 from marvel_characters.generate_raw_data import main
 from marvel_characters.marvel import Marvel
 from marvel_characters.pipelines.data_processing import create_pipeline
-from marvel_characters.pipelines.data_processing.nodes import preprocess_characters
+from marvel_characters.pipelines.data_processing.intermediate import (
+    preprocess_characters,
+)
+from marvel_characters.pipelines.data_processing.reporting import reporting
 
 ENV = os.environ.get("ENV", "local")
 
@@ -34,7 +39,7 @@ class TestMarvelCharacters:
 
         assert len(marvel.get_characters()) == 7
 
-        with pytest.raises(Exception) as excinfo:
+        with pytest.raises(Exception) as exc_info:
             success_ind, result = marvel.request_characters(
                 private_key=os.environ.get("MARVEL_PRIVATE_KEY"),
                 public_key=None,
@@ -42,7 +47,7 @@ class TestMarvelCharacters:
             )
             assert ~success_ind
             assert type(result) is Exception
-            assert result == excinfo
+            assert result == exc_info
 
     def test_pipeline_create_pipeline(self):
         pipeline = create_pipeline()
@@ -82,3 +87,23 @@ class TestMarvelCharacters:
         results_df = preprocess_characters(dummy_data)
 
         assert len(results_df) == 3
+
+    def test_nodes_reporting(self):
+        dummy_data = pd.DataFrame(
+            {
+                "id": [1011334],
+                "name": ["3-D Man"],
+                "modified": ["2014-04-29T00:00:00.000Z"],
+                "resource_uri": [
+                    "http://gateway.marvel.com/v1/public/characters/1011334"
+                ],
+                "total_comics_in_num": [12],
+                "total_series_in_num": [3],
+                "total_stories_in_num": [21],
+                "total_events_in_num": [1],
+            }
+        )
+
+        results = reporting(dummy_data)
+
+        assert type(results) is Column

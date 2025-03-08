@@ -1,6 +1,7 @@
 from kedro.pipeline import Pipeline, node, pipeline
 
-from .nodes import preprocess_characters
+from .intermediate import preprocess_characters
+from .reporting import reporting
 
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -11,6 +12,12 @@ def create_pipeline(**kwargs) -> Pipeline:
                 inputs="character_dataset",
                 outputs="preprocess_characters",
                 name="preprocess_characters_node",
-            )
+            ),
+            node(
+                func=reporting,
+                inputs="preprocess_characters",
+                outputs="reporting",
+                name="reporting_node",
+            ),
         ]
     )

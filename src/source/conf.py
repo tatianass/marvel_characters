@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = "marvel_characters"
-copyright = "2025, Tatiaan Saturno"
-author = "Tatiaan Saturno"
+copyright = "2025, Tatiana Saturno"
+author = "Tatiana Saturno"
 
 # The full version, including alpha/beta/rc tags
 release = "0.1"
