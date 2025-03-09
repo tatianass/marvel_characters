@@ -64,4 +64,4 @@ jobs:
 
       - name: Run the whole pipeline
         run: |
-          docker compose up --build --exit-code-from kedro-app
+          docker compose up --build --exit-code-from kedro-app:latest
