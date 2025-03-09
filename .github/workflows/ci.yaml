@@ -5,8 +5,7 @@ on:
     types: [opened, synchronize]
   push:
     branches:
-      - 'main'
-      - 'releases/**/*'
+      - main
 
 jobs:
   unit-test:
