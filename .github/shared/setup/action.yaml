@@ -1,0 +1,35 @@
+name: "Setup"
+description: "Setup Python environment and dependencies"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.13
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
+    - name: Install dependencies
+      shell: bash
+      run: |
+        python -m pip install --upgrade pip
+        uv venv --python 3.13
+        source .venv/bin/activate
+        uv sync
+    - name: 'Create env file'
+      shell: bash
+      run: |
+        touch .env.local
+        echo ENV=local >> .env.local
+        echo MARVEL_PRIVATE_KEY=${{ secrets.MARVEL_PRIVATE_KEY }} >> .env.local
+        echo MARVEL_PUBLIC_KEY=${{ secrets.MARVEL_PUBLIC_KEY }} >> .env.local
+        echo OFFSET=20 >> .env.local
+    - name: test
+      shell: bash
+      run: |
+        ls -la
