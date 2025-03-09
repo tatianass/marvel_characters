@@ -1,4 +1,5 @@
 # marvel_characters
+[![codecov](https://codecov.io/gh/tatianass/marvel_characters/graph/badge.svg?token=AWAG7I7IDG)](https://codecov.io/gh/tatianass/marvel_characters)
 [![Powered by Kedro](https://img.shields.io/badge/powered_by-kedro-ffc900?logo=kedro)](https://kedro.org)
 
 This project aims to provide a solution for a project interview related to the presence of Marvel characters in
