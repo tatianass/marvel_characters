@@ -23,11 +23,6 @@ jobs:
 
       - name: Add local files
         run: |
-          touch .env.local
-          echo ENV=local >> .env.local
-          echo MARVEL_PRIVATE_KEY=${{ secrets.MARVEL_PRIVATE_KEY }} >> .env.local
-          echo MARVEL_PUBLIC_KEY=${{ secrets.MARVEL_PUBLIC_KEY }} >> .env.local
-          echo OFFSET=20 >> .env.local
           mkdir -p data/01_raw/
           mkdir -p data/02_intermediate/
           mkdir -p data/08_reporting/
@@ -64,4 +59,13 @@ jobs:
 
       - name: Run the whole pipeline
         run: |
-          docker run --rm -e KEDRO_ENV=base kedro-app:latest sh -c "sh ./raw_run.sh && kedro run || exit 1"
+          docker run --rm -e KEDRO_ENV=base kedro-app:latest sh -c "
+          ls -la && \
+          touch .env.local && \
+          echo ENV=local >> .env.local && \
+          echo MARVEL_PRIVATE_KEY=${{ secrets.MARVEL_PRIVATE_KEY }} >> .env.local && \
+          echo MARVEL_PUBLIC_KEY=${{ secrets.MARVEL_PUBLIC_KEY }} >> .env.local && \
+          echo OFFSET=20 >> .env.local && \
+          sh ./raw_run.sh && \
+          kedro run || exit 1
+          "
