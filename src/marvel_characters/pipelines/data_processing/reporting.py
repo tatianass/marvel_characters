@@ -247,7 +247,7 @@ def comparison_dashboard(df: pd.DataFrame):
     <li>Multiple similar characters appear, since they can belong to different universes.</li>
     <li>Heavy focus on popular figures, with their appearance in comics highly correlated to the numbers in stories
      and series.</li>
-    <li>There's a lot of abandoned characters from 1969.</li>
+    <li><b>~18%</b> are not present in any comic. With 60% of those not appearing since 1969.</li>
     </ul></h3>
     """,
         width=550,
