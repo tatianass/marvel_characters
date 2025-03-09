@@ -42,7 +42,7 @@ class TestMarvelCharacters:
         with pytest.raises(Exception) as exc_info:
             success_ind, result = marvel.request_characters(
                 private_key=os.environ.get("MARVEL_PRIVATE_KEY"),
-                public_key=None,
+                public_key="",
                 offset=0,
             )
             assert ~success_ind
