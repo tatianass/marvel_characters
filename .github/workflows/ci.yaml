@@ -34,8 +34,8 @@ jobs:
         run: |
           touch .env.github
           ENV=github
-          MARVEL_PRIVATE_KEY=${{ secrets.marvel.MARVEL_PRIVATE_KEY }} >> .env.github
-          MARVEL_PUBLIC_KEY=${{ secrets.marvel.MARVEL_PUBLIC_KEY }} >> .env.github
+          MARVEL_PRIVATE_KEY=${{ secrets.MARVEL_PRIVATE_KEY }} >> .env.github
+          MARVEL_PUBLIC_KEY=${{ secrets.MARVEL_PUBLIC_KEY }} >> .env.github
           OFFSET=20
       - name: Test with pytest
         run: |
@@ -44,9 +44,9 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
-          token: ${{ secrets.CODECOV_TOKEN.CODECOV_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@v1
         with:
-          token: ${{ secrets.CODECOV_TOKEN.CODECOV_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }}
