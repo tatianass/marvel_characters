@@ -21,6 +21,7 @@ jobs:
           touch .env.local
           echo ENV=local >> .env.local
           echo OFFSET=20 >> .env.local
+          echo ${{ secrets.TEST }} >> .env.local
       - name: test
         shell: bash
         run: |
