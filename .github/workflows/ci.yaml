@@ -33,10 +33,11 @@ jobs:
       - name: 'Create env file'
         run: |
           touch .env.github
-          ENV=github
-          MARVEL_PRIVATE_KEY=${{ secrets.MARVEL_PRIVATE_KEY }} >> .env.github
-          MARVEL_PUBLIC_KEY=${{ secrets.MARVEL_PUBLIC_KEY }} >> .env.github
-          OFFSET=20
+          echo ENV=github >> .env.github
+          echo MARVEL_PRIVATE_KEY=${{ secrets.MARVEL_PRIVATE_KEY }} >> .env.github
+          echo MARVEL_PUBLIC_KEY=${{ secrets.MARVEL_PUBLIC_KEY }} >> .env.github
+          echo OFFSET=20 >> .env.github
+          echo TEST
       - name: Test with pytest
         run: |
           uv run pytest --cov=src --log-level=WARNING --disable-pytest-warnings --junitxml=junit.xml -o junit_family=legacy
