@@ -17,7 +17,7 @@ dependencies = [
   "urllib3==1.26.16",
   "python-dotenv>=1.0.1",
   "kedro==0.19.11",
-  "kedro-datasets[polars, json]==6.0.0",
+  "kedro-datasets[json]==6.0.0",
   "ipdb",
   "pydantic",
   "bokeh",
