@@ -11,6 +11,9 @@ different comics.
 - `uv` [see here](https://github.com/astral-sh/uv)
 - `pre-commit`: `brew install pre-commit`
 - `docker`
+- `llvm`: `brew install llvm`
+
+PS: Focusing on macOS commands
 
 Activate the virtual environment with :
 ```bash

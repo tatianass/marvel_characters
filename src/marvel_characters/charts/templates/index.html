@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marvel Characters</title>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.6.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.6.3.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+    {{ resources|safe }}  <!-- REQUIRED for Bokeh to work -->
+
+    <style>
+        /* static/styles.css */
+        @import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            color: rgb(149, 142, 142);
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://i.imgur.com/dTjnnHe.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            background-blend-mode: lighten;
+          }
+
+        :host(.custom_table) {
+            background-color: lightblue;
+            color:navy;
+        }
+
+        .slick-cell.selected {
+            background-color: #3e3945;
+        }
+
+        .slick-row { background-color: #393939; }
+
+        .bk-input {
+            font-size: 40px;
+            font-color: rgb(149, 142, 142);
+        }
+    </style>
+</head>
+<body>
+<h1> Marvel Characters: <i>Comics Presence</i></h1>
+
+<!-- Ensure these placeholders exist -->
+<div>
+    {{ plot_div|safe }}
+    {{ plot_script|safe }}
+</div>
+</body>
+</html>
