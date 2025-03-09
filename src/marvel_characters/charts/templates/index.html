@@ -20,7 +20,7 @@
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
-            color: rgb(149, 142, 142);
+            color: #958e8e;
             background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://i.imgur.com/dTjnnHe.jpeg');
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -41,17 +41,228 @@
 
         .bk-input {
             font-size: 40px;
-            font-color: rgb(149, 142, 142);
+            font-color: #958e8e;
         }
     </style>
 </head>
 <body>
-<h1> Marvel Characters: <i>Comic Presence</i></h1>
+<div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 80">
+    <text x="800" y="50" font-size="32" text-anchor="middle" font-weight="bold" fill="#958e8e">Marvel Characters: Comic Presence</text>
+    </svg>
+</div>
 
 <!-- Ensure these placeholders exist -->
 <div>
     {{ plot_div|safe }}
     {{ plot_script|safe }}
+</div>
+
+<div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+        <!-- Background -->
+        <rect width="1600" height="900" fill="#f8f9fa" opacity="0.3"/>
+
+        <!-- Title -->
+        <text x="800" y="50" font-size="32" text-anchor="middle" font-weight="bold" fill="#958e8e">Data Architecture Integration Diagram</text>
+
+        <!-- Legend -->
+        <rect x="50" y="800" width="20" height="20" fill="#6c8ebf" stroke="#5a7ca5" stroke-width="1"/>
+        <text x="80" y="815" font-size="16" fill=#958e8e>Infrastructure & Environment</text>
+
+        <rect x="300" y="800" width="20" height="20" fill="#d5e8d4" stroke="#82b366" stroke-width="1"/>
+        <text x="330" y="815" font-size="16" fill=#958e8e>Programming & Scripting</text>
+
+        <rect x="550" y="800" width="20" height="20" fill="#f8cecc" stroke="#b85450" stroke-width="1"/>
+        <text x="580" y="815" font-size="16" fill=#958e8e>Security & Code Quality</text>
+
+        <rect x="800" y="800" width="20" height="20" fill="#ffe6cc" stroke="#d79b00" stroke-width="1"/>
+        <text x="830" y="815" font-size="16" fill=#958e8e>Testing & Coverage</text>
+
+        <rect x="1050" y="800" width="20" height="20" fill="#e1d5e7" stroke="#9673a6" stroke-width="1"/>
+        <text x="1080" y="815" font-size="16" fill=#958e8e>Data Processing & Workflow</text>
+
+        <rect x="1300" y="800" width="20" height="20" fill="#fff2cc" stroke="#d6b656" stroke-width="1"/>
+        <text x="1330" y="815" font-size="16" fill=#958e8e>Visualization & UI</text>
+
+        <rect x="50" y="840" width="20" height="20" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1"/>
+        <text x="80" y="855" font-size="16" fill=#958e8e>API & External Services</text>
+
+        <rect x="300" y="840" width="20" height="20" fill="#f5f5f5" stroke="#666666" stroke-width="1"/>
+        <text x="330" y="855" font-size="16" fill=#958e8e>Version Control & CI/CD</text>
+
+        <rect x="550" y="840" width="20" height="20" fill="#d4e1f5" stroke="#3a5082" stroke-width="1"/>
+        <text x="580" y="855" font-size="16" fill=#958e8e>Special Utility</text>
+
+        <!-- Infrastructure & Environment -->
+        <rect x="150" y="150" width="120" height="80" rx="10" ry="10" fill="#6c8ebf" stroke="#5a7ca5" stroke-width="2"/>
+        <text x="210" y="195" font-size="20" text-anchor="middle" font-weight="italic" fill="#fff">Docker</text>
+
+        <rect x="150" y="250" width="120" height="80" rx="10" ry="10" fill="#6c8ebf" stroke="#5a7ca5" stroke-width="2"/>
+        <text x="210" y="295" font-size="20" text-anchor="middle" font-weight="italic" fill="#fff">Venv</text>
+
+        <!-- Programming & Scripting -->
+        <rect x="350" y="150" width="120" height="80" rx="10" ry="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+        <text x="410" y="195" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Python</text>
+
+        <rect x="350" y="250" width="120" height="80" rx="10" ry="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+        <text x="410" y="295" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Just</text>
+
+        <!-- Security & Code Quality -->
+        <rect x="150" y="400" width="120" height="80" rx="10" ry="10" fill="#f8cecc" stroke="#b85450" stroke-width="2"/>
+        <text x="210" y="445" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Bandit</text>
+
+        <rect x="150" y="500" width="120" height="80" rx="10" ry="10" fill="#f8cecc" stroke="#b85450" stroke-width="2"/>
+        <text x="210" y="545" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Ruff</text>
+
+        <rect x="150" y="600" width="120" height="80" rx="10" ry="10" fill="#f8cecc" stroke="#b85450" stroke-width="2"/>
+        <text x="210" y="645" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Pre-commit</text>
+
+        <!-- Testing & Coverage -->
+        <rect x="350" y="400" width="120" height="80" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+        <text x="410" y="445" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Pytest</text>
+
+        <rect x="350" y="500" width="120" height="80" rx="10" ry="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+        <text x="410" y="545" font-size="16" text-anchor="middle" font-weight="italic" fill=#958e8e>Test Coverage</text>
+
+        <!-- Data Processing & Workflow -->
+        <rect x="600" y="150" width="120" height="80" rx="10" ry="10" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+        <text x="660" y="195" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Pandas</text>
+
+        <rect x="600" y="250" width="120" height="80" rx="10" ry="10" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+        <text x="660" y="295" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Kedro</text>
+
+        <rect x="600" y="350" width="120" height="80" rx="10" ry="10" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+        <text x="660" y="395" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Kedro Viz</text>
+
+        <rect x="600" y="450" width="120" height="80" rx="10" ry="10" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+        <text x="660" y="495" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Pydantic</text>
+
+        <!-- Visualization & UI -->
+        <rect x="850" y="150" width="120" height="80" rx="10" ry="10" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+        <text x="910" y="195" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Bokeh</text>
+
+        <rect x="850" y="250" width="120" height="80" rx="10" ry="10" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+        <text x="910" y="295" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>HTML</text>
+
+        <rect x="850" y="350" width="120" height="80" rx="10" ry="10" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+        <text x="910" y="395" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>CSS</text>
+
+        <rect x="850" y="450" width="120" height="80" rx="10" ry="10" fill="#fff2cc" stroke="#d6b656" stroke-width="2"/>
+        <text x="910" y="495" font-size="18" text-anchor="middle" font-weight="italic" fill=#958e8e>JavaScript</text>
+
+        <!-- API & External Services -->
+        <rect x="1100" y="150" width="120" height="80" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+        <text x="1160" y="195" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Requests</text>
+
+        <rect x="1100" y="250" width="120" height="80" rx="10" ry="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+        <text x="1160" y="295" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Marvel API</text>
+
+        <!-- Version Control & CI/CD -->
+        <rect x="1300" y="150" width="120" height="80" rx="10" ry="10" fill="#f5f5f5" stroke="#666666" stroke-width="2"/>
+        <text x="1360" y="195" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>GitHub</text>
+
+        <rect x="1300" y="250" width="120" height="80" rx="10" ry="10" fill="#f5f5f5" stroke="#666666" stroke-width="2"/>
+        <text x="1360" y="295" font-size="20" text-anchor="middle" font-weight="italic" fill=#958e8e>Git</text>
+
+        <rect x="1300" y="350" width="120" height="80" rx="10" ry="10" fill="#f5f5f5" stroke="#666666" stroke-width="2"/>
+        <text x="1360" y="390" font-size="18" text-anchor="middle" font-weight="italic" fill=#958e8e>GitHub</text>
+        <text x="1360" y="415" font-size="18" text-anchor="middle" font-weight="italic" fill=#958e8e>Actions</text>
+
+        <!-- Special Utility -->
+        <rect x="1100" y="400" width="120" height="80" rx="10" ry="10" fill="#d4e1f5" stroke="#3a5082" stroke-width="2"/>
+        <text x="1160" y="440" font-size="18" text-anchor="middle" font-weight="italic" fill=#958e8e>UV</text>
+
+        <!-- Main flow arrows -->
+        <!-- Python connects to everything -->
+        <path d="M410 230 L410 250" stroke=#958e8e stroke-width="2" fill="none"/>
+        <path d="M350 190 L270 190" stroke=#958e8e stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M350 290 L270 290" stroke=#958e8e stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M410 230 C410 330, 200 350, 210 400" stroke=#958e8e stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M410 230 C410 330, 250 350, 210 500" stroke=#958e8e stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M410 230 C410 330, 300 350, 210 600" stroke=#958e8e stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M410 230 C410 330, 350 350, 410 400" stroke=#958e8e stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M470 190 L600 190" stroke=#958e8e stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M470 190 C530 190, 550 290, 600 290" stroke=#958e8e stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M470 190 C560 190, 580 390, 600 390" stroke=#958e8e stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M470 190 C580 190, 590 490, 600 490" stroke=#958e8e stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+
+        <!-- Data flow -->
+        <path d="M720 290 L850 190" stroke="#9673a6" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M720 290 C780 290, 800 350, 850 390" stroke="#9673a6" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M720 290 C800 290, 820 450, 850 490" stroke="#9673a6" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M720 390 L850 390" stroke="#9673a6" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+
+        <!-- API connections -->
+        <path d="M720 190 L1100 190" stroke="#6c8ebf" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M970 290 L1100 290" stroke="#6c8ebf" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+
+        <!-- Version Control connections -->
+        <path d="M410 190 C800 100, 1100 100, 1300 150" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M1360 230 L1360 250" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M1360 330 L1360 350" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+
+        <!-- CI/CD connections -->
+        <path d="M1360 430 C1360 500, 700 650, 270 600" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M1360 430 C1360 550, 500 650, 410 580" stroke="#666666" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+
+        <!-- Special Utility connections -->
+        <path d="M1160 400 C1160 350, 500 300, 410 230" stroke="#3a5082" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M1160 400 C1160 350, 250 320, 210 250" stroke="#3a5082" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+
+        <!-- Workflow arrows -->
+        <path d="M660 330 L660 350" stroke="#9673a6" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M660 230 L660 250" stroke="#9673a6" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M720 490 C750 490, 750 440, 720 390" stroke="#9673a6" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+
+        <!-- UI Layer connections -->
+        <path d="M910 330 L910 350" stroke="#d6b656" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M910 230 L910 250" stroke="#d6b656" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+        <path d="M910 430 L910 450" stroke="#d6b656" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+
+        <!-- Arrow marker definition -->
+        <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill=#958e8e/>
+            </marker>
+        </defs>
+
+        <!-- Component groups -->
+        <rect x="130" y="120" width="160" height="230" rx="15" ry="15" fill="none" stroke="#5a7ca5" stroke-width="1" stroke-dasharray="5,5"/>
+        <text x="210" y="140" font-size="16" text-anchor="middle" fill="#5a7ca5" font-weight="bold">Infrastructure</text>
+
+        <rect x="330" y="120" width="160" height="230" rx="15" ry="15" fill="none" stroke="#82b366" stroke-width="1" stroke-dasharray="5,5"/>
+        <text x="410" y="140" font-size="16" text-anchor="middle" fill="#82b366" font-weight="bold">Programming</text>
+
+        <rect x="130" y="370" width="160" height="330" rx="15" ry="15" fill="none" stroke="#b85450" stroke-width="1" stroke-dasharray="5,5"/>
+        <text x="210" y="390" font-size="16" text-anchor="middle" fill="#b85450" font-weight="bold">Security</text>
+
+        <rect x="330" y="370" width="160" height="230" rx="15" ry="15" fill="none" stroke="#d79b00" stroke-width="1" stroke-dasharray="5,5"/>
+        <text x="410" y="390" font-size="16" text-anchor="middle" fill="#d79b00" font-weight="bold">Testing</text>
+
+        <rect x="580" y="120" width="160" height="430" rx="15" ry="15" fill="none" stroke="#9673a6" stroke-width="1" stroke-dasharray="5,5"/>
+        <text x="660" y="140" font-size="16" text-anchor="middle" fill="#9673a6" font-weight="bold">Data Processing</text>
+
+        <rect x="830" y="120" width="160" height="430" rx="15" ry="15" fill="none" stroke="#d6b656" stroke-width="1" stroke-dasharray="5,5"/>
+        <text x="910" y="140" font-size="16" text-anchor="middle" fill="#d6b656" font-weight="bold">Visualization</text>
+
+        <rect x="1080" y="120" width="160" height="230" rx="15" ry="15" fill="none" stroke="#6c8ebf" stroke-width="1" stroke-dasharray="5,5"/>
+        <text x="1160" y="140" font-size="16" text-anchor="middle" fill="#6c8ebf" font-weight="bold">API Services</text>
+
+        <rect x="1280" y="120" width="160" height="330" rx="15" ry="15" fill="none" stroke="#666666" stroke-width="1" stroke-dasharray="5,5"/>
+        <text x="1360" y="140" font-size="16" text-anchor="middle" fill="#666666" font-weight="bold">Version Control</text>
+
+        <rect x="1080" y="370" width="160" height="130" rx="15" ry="15" fill="none" stroke="#3a5082" stroke-width="1" stroke-dasharray="5,5"/>
+        <text x="1160" y="390" font-size="16" text-anchor="middle" fill="#3a5082" font-weight="bold">Utilities</text>
+
+        <!-- Data Flow Path -->
+        <path d="M550 700 C650 700, 750 700, 850 700" stroke=#958e8e stroke-width="3" fill="none" marker-end="url(#arrow)" opacity="0.5"/>
+        <text x="700" y="680" font-size="18" text-anchor="middle" font-weight="bold" fill=#958e8e>Data Flow</text>
+
+        <!-- Main data flow cycle -->
+        <path d="M800 650 C900 600, 1000 600, 1100 650 C1200 700, 1100 750, 1000 750 C900 750, 800 700, 800 650" stroke="#9673a6" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+        <text x="950" y="680" font-size="16" text-anchor="middle" fill="#9673a6">Data Processing Cycle</text>
+    </svg>
 </div>
 </body>
 </html>

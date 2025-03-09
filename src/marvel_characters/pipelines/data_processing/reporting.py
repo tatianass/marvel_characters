@@ -239,7 +239,7 @@ def comparison_dashboard(df: pd.DataFrame):
 
     div = Div(
         text="""
-    <h3>Analysing the information from the Marvel API, I found that:
+    <h3>Insights from analysing information from the Marvel API:
     <ul>
     <li>There's a total of <b>1564</b> characters.</li>
     <li>And (see table below), <b>the top 3</b> are: Spider Man (Peter Parker); X-Men; Wolverine.</li>
@@ -254,7 +254,7 @@ def comparison_dashboard(df: pd.DataFrame):
         height=400,
     )
 
-    layout_comparison = row(row(div, controls), create_marvel_comparison_chart())
+    layout_comparison = row(create_marvel_comparison_chart(), row(controls, div))
 
     # Adding update functions
     x.on_change("value", update_marvel_comparison_chart)
