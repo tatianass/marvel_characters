@@ -78,3 +78,7 @@ run-raw:
 # Run Bokeh server
 run-chart:
     python3 -m marvel_characters.charts.main
+
+# Kedro pipeline vizualization
+viz:
+    kedro viz

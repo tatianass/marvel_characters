@@ -12,7 +12,6 @@ different comics.
 - `uv` [see here](https://github.com/astral-sh/uv)
 - `pre-commit`: `brew install pre-commit`
 - `docker`
-- `llvm`: `brew install llvm`
 
 PS: Focusing on macOS commands
 
@@ -36,7 +35,9 @@ source .venv/bin/activate
 │       ├── __init__.py
 │       └── main.py
 │       └── marvel.py
-│       └── pipelines.py
+│       └── charts
+│        └── templates
+│       └── pipelines
 │        └── data_processing.py
 │         └── pipeline.py
 │         └── nodes.py
@@ -89,7 +90,8 @@ just run-full
 ```
 
 The data can be accessed on the `Docker Desktop > Volume`:
-![img.png](img.png)
+
+<img src="assets/img/img.png" alt="pipeline" width="25%" height="25%"/>
 
 ## Documentation
 
@@ -101,7 +103,16 @@ cd src
 make html
 ```
 
+For information on the raw data, go [here](https://www.postman.com/alex-postman-workspace/marvel-api-workspace/documentation/989e351/marvel-api?entity=request-54a05c8a-e8cf-4187-a277-e497bb6f2094).
+
 ## Kedro information
+
+### Current pipeline
+
+This image illustrates the current data pipeline.
+
+<img src="assets/img/kedro-pipeline.png" alt="pipeline" width="25%" height="25%"/>
+
 ### Rules and guidelines
 
 In order to get the best out of the template:
