@@ -34,7 +34,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker buildx build . -t kedro-app
+          docker buildx build . -t kedro-app:latest
 
       - name: Test Docker image basic functionality
         run: |
