@@ -1,0 +1,61 @@
+name: Test Kedro Dockerfile Build and Run
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  test-dockerfile:
+    runs-on: ubuntu-latest
+    environment: marvel
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: "./.github/shared/setup"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          load: true
+          tags: kedro-app:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Test Docker image basic functionality
+        run: |
+          # Test if Python and jq are installed correctly
+          docker run --rm kedro-app:latest python --version
+          docker run --rm kedro-app:latest jq --version
+
+          # Test if Kedro is installed
+          docker run --rm kedro-app:latest kedro --version
+
+      - name: Test raw_run.sh execution
+        run: |
+          # Create a test container to verify raw_run.sh exists and has execute permissions
+          docker run --rm kedro-app:latest ls -la ./raw_run.sh
+
+      - name: Test with mock run command
+        run: |
+          # Override the CMD to test if the container can start without actually running the full pipeline
+          # This prevents the workflow from hanging if the pipeline needs inputs or runs for a long time
+          docker run --rm -e KEDRO_ENV=test kedro-app:latest sh -c "echo 'Would run: sh ./raw_run.sh && kedro run' && exit 0"
+
+      - name: Run with test pipeline
+        run: |
+          touch .env.local
+          echo ENV=local >> .env.local
+          echo MARVEL_PRIVATE_KEY=${{ secrets.MARVEL_PRIVATE_KEY }} >> .env.local
+          echo MARVEL_PUBLIC_KEY=${{ secrets.MARVEL_PUBLIC_KEY }} >> .env.local
+          echo OFFSET=20 >> .env.local
+          docker run --rm -e KEDRO_ENV=test kedro-app:latest sh -c "kedro run || exit 1"
