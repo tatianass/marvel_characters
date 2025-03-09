@@ -21,6 +21,12 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Add local files
+        run: |
+          mkdir -p data/01_raw/
+          mkdir -p data/02_intermediate/
+          mkdir -p data/08_reporting/
+
       - name: Build Docker image
         uses: docker/build-push-action@v5
         with:
@@ -51,11 +57,14 @@ jobs:
           # This prevents the workflow from hanging if the pipeline needs inputs or runs for a long time
           docker run --rm -e KEDRO_ENV=test kedro-app:latest sh -c "echo 'Would run: sh ./raw_run.sh && kedro run' && exit 0"
 
-      - name: Run with test pipeline
+      - name: Run the whole pipeline
         run: |
-          touch .env.local
-          echo ENV=local >> .env.local
-          echo MARVEL_PRIVATE_KEY=${{ secrets.MARVEL_PRIVATE_KEY }} >> .env.local
-          echo MARVEL_PUBLIC_KEY=${{ secrets.MARVEL_PUBLIC_KEY }} >> .env.local
-          echo OFFSET=20 >> .env.local
-          docker run --rm -e KEDRO_ENV=test kedro-app:latest sh -c "kedro run || exit 1"
+          docker run --rm -e KEDRO_ENV=base kedro-app:latest sh -c "
+          touch .env.local && \
+          echo ENV=local >> .env.local && \
+          echo MARVEL_PRIVATE_KEY=${{ secrets.MARVEL_PRIVATE_KEY }} >> .env.local && \
+          echo MARVEL_PUBLIC_KEY=${{ secrets.MARVEL_PUBLIC_KEY }} >> .env.local && \
+          echo OFFSET=20 >> .env.local && \
+          sh ./raw_run.sh && \
+          kedro run || exit 1
+          "
