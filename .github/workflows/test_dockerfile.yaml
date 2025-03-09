@@ -33,8 +33,14 @@ jobs:
           mkdir -p data/08_reporting/
 
       - name: Build Docker image
-        run: |
-          docker buildx build . -t kedro-app:latest
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          load: true
+          tags: kedro-app:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Test Docker image basic functionality
         run: |
