@@ -64,4 +64,4 @@ jobs:
 
       - name: Run the whole pipeline
         run: |
-          docker run --rm -e KEDRO_ENV=base kedro-app:latest sh -c "kedro run || exit 1"
+          docker run --rm -e KEDRO_ENV=base kedro-app:latest sh -c "sh ./raw_run.sh && kedro run || exit 1"
