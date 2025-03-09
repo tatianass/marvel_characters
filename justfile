@@ -59,7 +59,7 @@ format:
 
 # Run tests
 test:
-    uv run pytest --cov=src --log-level=WARNING --disable-pytest-warnings
+    uv run pytest --cov=src --log-level=WARNING --disable-pytest-warnings --junitxml=junit.xml -o junit_family=legacy
 
 # Run tests
 test-docker:
