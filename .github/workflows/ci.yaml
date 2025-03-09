@@ -30,6 +30,13 @@ jobs:
           uv venv --python 3.13
           source .venv/bin/activate
           uv sync
+      - name: 'Create env file'
+        run: |
+          touch .env.github
+          ENV=github
+          MARVEL_PRIVATE_KEY=${{ marvel.MARVEL_PRIVATE_KEY }} >> .env.github
+          MARVEL_PUBLIC_KEY=${{ marvel.MARVEL_PUBLIC_KEY }} >> .env.github
+          OFFSET=20
       - name: Test with pytest
         run: |
           uv run pytest --cov=src --log-level=WARNING --disable-pytest-warnings --junitxml=junit.xml -o junit_family=legacy
@@ -42,4 +49,4 @@ jobs:
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@v1
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          token: ${{ CODECOV_TOKEN.CODECOV_TOKEN }}

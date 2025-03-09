@@ -45,7 +45,7 @@ class Marvel:
         else:
             result = r.json()
             if result["code"] != 200:
-                raise Exception(result["code"])
+                raise Exception("Code different than 200", result["code"])
 
             self.characters = result
             return True, result
