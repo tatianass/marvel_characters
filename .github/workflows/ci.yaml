@@ -4,9 +4,10 @@ on:
   pull_request:
     types: [opened, synchronize]
   push:
+    types: [synchronize]
     branches:
-      - 'master'
-      - 'releases/**'
+      - 'main'
+      - 'releases/**/*'
 
 jobs:
   unit-test:
